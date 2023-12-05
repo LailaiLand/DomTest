@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="shortcut icon" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <script src=""></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      var main = document.getElementById("app");
+      var shadowRoot = main.attachShadow({ mode: "open" });
+
+      var table = document.createElement("table");
+      var tr1 = document.createElement("tr");
+      var tr2 = document.createElement("tr");
+      var tr3 = document.createElement("tr");
+      var th1 = document.createElement("th");
+      var th2 = document.createElement("th");
+      var td1 = document.createElement("td");
+      var td2 = document.createElement("td");
+      var td3 = document.createElement("td");
+      var td4 = document.createElement("td");
+
+      th1.textContent = "Substans";
+      th2.textContent = "Smak";
+      th1.style.border = "2px solid";
+      th2.style.border = "2px solid";
+      tr1.appendChild(th1);
+      tr1.appendChild(th2);
+
+      td1.textContent = "Kake";
+      td2.textContent = "Digg";
+      td1.style.border = "1px solid";
+      td2.style.border = "1px solid";
+      tr2.appendChild(td1);
+      tr2.appendChild(td2);
+      
+      td3.textContent = "Banan";
+      td4.textContent = "Æsj";
+      td3.style.border = "1px solid";
+      td4.style.border = "1px solid";
+      tr3.appendChild(td3);
+      tr3.appendChild(td4);
+
+      table.appendChild(tr1);
+      table.appendChild(tr2);
+      table.appendChild(tr3);
+      table.style.border = "1px solid";
+      table.style.width = "100%";
+
+      shadowRoot.appendChild(table);
+    </script>
+  </body>
+</html>
