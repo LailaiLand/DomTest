@@ -49,6 +49,15 @@
       table.style.border = "1px solid";
       table.style.width = "100%";
 
+      Array.from(table.children).map((tableChild) => {
+        Array.from(tableChild.children).map((tableCell) => {
+          tableCell.addEventListener("click", function () {
+            alert(`clicked on "${this.textContent}"`);
+          });
+        });
+      });
+
+      console.log(table.children);
       shadowRoot.appendChild(table);
     </script>
   </body>
