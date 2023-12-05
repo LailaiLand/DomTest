@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <div id="app"></div>
     <script>
-      var main = document.getElementById("app");
+      var main = document.createElement("div");
+      document.body.appendChild(main);
       var shadowRoot = main.attachShadow({ mode: "open" });
 
       var table = document.createElement("table");
@@ -50,18 +50,16 @@
       table.style.border = "1px solid";
       table.style.width = "100%";
 
-      Array.from(table.children).map((tableChild) => {
-        Array.from(tableChild.children).map((tableCell) => {
+      Array.from(table.children).map((tableRow) => {
+        Array.from(tableRow.children).map((tableCell) => {
           tableCell.addEventListener("click", function () {
             alert(`clicked on "${this.textContent}"`);
           });
         });
       });
 
-      
       console.log(table.children);
       shadowRoot.appendChild(table);
-
 
       // TEST: tried adding a drag and drop. Need more info, attempt aborted
       // var p = document.createElement("p");
