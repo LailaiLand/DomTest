@@ -50,6 +50,8 @@
       table.style.border = "1px solid";
       table.style.width = "100%";
 
+      table.createCaption().textContent = "tungvindt table"
+
       Array.from(table.children).map((tableRow) => {
         Array.from(tableRow.children).map((tableCell) => {
           tableCell.addEventListener("click", function () {
@@ -58,7 +60,7 @@
         });
       });
 
-      console.log(table.children);
+      console.log("appended children", table);
       simpleRoot.appendChild(table);
     </script>
     <script src="instance table.js"></script>

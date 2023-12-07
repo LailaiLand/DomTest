@@ -5,24 +5,43 @@ const instanceRoot = container.attachShadow({ mode: "open" });
 generateTable();
 
 function generateTable() {
-  let table = document.createElement("table");
-  let header = table.createTHead().insertRow(-1);
-  header.insertCell().textContent = "Header 1";
-  header.insertCell().textContent = "Header 2";
-  header.insertCell().textContent = "Header 3";
-  let body = table.createTBody();
-  let row1 = body.insertRow();
-  let row2 = body.insertRow();
-  let row3 = body.insertRow();
-  row1.insertCell().outerHTML = "<th>Row 1 Coloumn 1</th>";
-  row1.insertCell().textContent = "Row 1 Coloumn 2";
-  row1.insertCell().textContent = "Row 1 Coloumn 3";
-  row2.insertCell().outerHTML = "<th>Row 2 Coloumn 1</th>";
-  row2.insertCell().textContent = "Row 2 Coloumn 2";
-  row2.insertCell().textContent = "Row 2 Coloumn 3";
-  row3.insertCell().outerHTML = "<th>Row 3 Coloumn 1</th>";
-  row3.insertCell().textContent = "Row 3 Coloumn 2";
-  row3.insertCell().textContent = "Row 3 Coloumn 3";
+  let height = 5;
+  let width = 3;
+  let newTable = document.createElement("table");
+  let newHead = newTable.createTHead().insertRow();
+  let newBody = newTable.createTBody();
 
-  instanceRoot.appendChild(table);
+  for (i = 0; i < width; i++) {
+    newHead.insertCell(i).textContent = `Header ${i + 1}`;
+  }
+
+  cellInserter(newBody, height, width);
+
+  let cells = newTable.querySelectorAll("td");
+  console.log("cells", cells)
+  cells.forEach(cell => {
+    cell.style.border = "1px solid";
+    cell.style.width = "130px"
+  });
+
+  newTable.createCaption().textContent = "superkult dynamisk loop table"
+
+  instanceRoot.appendChild(newTable);
+
+  console.log("new table", newTable);
+}
+
+function cellInserter(body, height, width) {
+  for (i = 0; i < height; i++) {
+    let newRow = body.insertRow(i);
+    for (j = 0; j < width; j++) {
+      let newCell = newRow.insertCell(j);
+      newCell.textContent = `|Row ${i + 1} Coloumn ${j + 1}|`;
+      let count = 0
+      newCell.addEventListener("click", function () {
+        count++;
+        this.textContent = count;
+      });
+    }
+  }
 }
