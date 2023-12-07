@@ -18,13 +18,12 @@ function generateTable() {
   cellInserter(newBody, height, width);
 
   let cells = newTable.querySelectorAll("td");
-  console.log("cells", cells)
-  cells.forEach(cell => {
+  cells.forEach((cell) => {
     cell.style.border = "1px solid";
-    cell.style.width = "130px"
+    cell.style.width = "130px";
   });
 
-  newTable.createCaption().textContent = "superkult dynamisk loop table"
+  newTable.createCaption().textContent = "superkult dynamisk loop table";
 
   instanceRoot.appendChild(newTable);
 
@@ -36,8 +35,8 @@ function cellInserter(body, height, width) {
     let newRow = body.insertRow(i);
     for (j = 0; j < width; j++) {
       let newCell = newRow.insertCell(j);
-      newCell.textContent = `|Row ${i + 1} Coloumn ${j + 1}|`;
-      let count = 0
+      newCell.textContent = `Row ${i + 1} Coloumn ${j + 1}`;
+      let count = 0;
       newCell.addEventListener("click", function () {
         count++;
         this.textContent = count;
