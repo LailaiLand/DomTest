@@ -10,7 +10,7 @@
     <script>
       var main = document.createElement("div");
       document.body.appendChild(main);
-      var shadowRoot = main.attachShadow({ mode: "open" });
+      var simpleRoot = main.attachShadow({ mode: "open" });
 
       var table = document.createElement("table");
       var tr1 = document.createElement("tr");
@@ -59,23 +59,8 @@
       });
 
       console.log(table.children);
-      shadowRoot.appendChild(table);
-
-      // TEST: tried adding a drag and drop. Need more info, attempt aborted
-      // var p = document.createElement("p");
-      // p.textContent = "Drag test";
-      // p.draggable = "true";
-      // p.addEventListener("dragstart", (event) =>
-      //   event.dataTransfer.setData("text/plain", "Dragis testis")
-      // );
-      // var drop = document.createElement("p");
-      // drop.style = "height: 50px; width: 200px; border: 1px solid;";
-      // drop.addEventListener("dragend", (event) =>{
-      //   const data = event.dataTransfer.getData("text/plain");
-      //   event.target.textContent = data;
-      // });
-      // shadowRoot.appendChild(p);
-      // shadowRoot.appendChild(drop);
+      simpleRoot.appendChild(table);
     </script>
+    <script src="instance table.js"></script>
   </body>
 </html>
