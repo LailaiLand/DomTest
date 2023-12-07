@@ -35,7 +35,7 @@ function cellInserter(body, height, width) {
     let newRow = body.insertRow(i);
     for (j = 0; j < width; j++) {
       let newCell = newRow.insertCell(j);
-      newCell.textContent = `Row ${i + 1} Coloumn ${j + 1}`;
+      newCell.textContent = `Row ${i + 1} Column ${j + 1}`;
       let count = 0;
       newCell.addEventListener("click", function () {
         count++;
